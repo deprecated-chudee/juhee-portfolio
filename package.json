@@ -1,0 +1,28 @@
+{
+  "name": "juhee-portfolio",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.html",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@vaadin/router": "^1.5.0",
+    "@vaadin/vaadin-tabs": "^3.0.5",
+    "@webcomponents/webcomponentsjs": "^2.3.0",
+    "lit-element": "^2.2.1",
+    "lit-html": "^1.1.2"
+  },
+  "devDependencies": {
+    "parcel-bundler": "^1.12.4",
+    "typescript": "^3.6.4"
+  },
+  "browserslist": [
+    "Chrome > 50"
+  ],
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
