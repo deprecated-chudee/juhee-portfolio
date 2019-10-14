@@ -1,33 +1,38 @@
-import { LitElement, html, customElement, property, css, unsafeCSS } from 'lit-element';
-import background from '../assets/images/door1.png';
+import { LitElement, html, customElement } from 'lit-element';
+
+// @ts-ignore
+import background from '../assets/imgs/out/door/out04door1.png';
 
 @customElement('scene2-page')
 export class Scene2Page extends LitElement {
-  static get styles() {
-    return css`
-      :host {
-        position: fixed;
-        width: 100%;
-        height: 100%;
-      }
-      .layout {
-        width: 100%;
-        height: 100%;
-        background-color: skyblue;
-      }
-      .background {
-        width: 100%;
-        height: 100%;
-        object-fit: contain;
-        object-position: center;
-      }
-    `
-  }
   render() {
+    const style = html`
+      <style>
+        :host {
+          display: block;
+          position: fixed;
+          width: 100%;
+          height: 100%;
+          background-color: skyblue;
+        }
+        .layout {
+          width: 100%;
+          height: 100%;
+        }
+        .background {
+          width: 100%;
+          height: 100%;
+          background-image: url(${background});
+          background-repeat: no-repeat;
+          background-size: contain;
+          background-position: center;
+        }
+      </style>
+    `;
     return html`
-<div class="layout">
-    <img class='background' src=${background}>
-</div>
+      ${style}
+      
+      <div class='background' />
     `
   }
 }

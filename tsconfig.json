@@ -13,7 +13,7 @@
     "moduleResolution":"node",
     "experimentalDecorators": true
   },
-  "include": [
-    ".d.ts"
+  "exclude": [
+    "dist"
   ]
 }

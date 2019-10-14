@@ -14,11 +14,6 @@
     z-index: 999999;
 
 }
-vaadin-tabs {
-    position: fixed;
-    width: 100%;
-    z-index: 1;
-}
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 
 /* Document
@@ -43,6 +38,7 @@ html {
 
 body {
     margin: 0;
+    overscroll-behavior: none;
 }
 
 /**

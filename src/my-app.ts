@@ -5,11 +5,12 @@ import { Router } from '@vaadin/router';
 import './pages/intro-page';
 import './pages/scene1-page';
 import './pages/scene2-page';
+import './pages/scene3-page';
 
 @customElement('my-app')
 export class MyApp extends LitElement {
   @property({ type: String }) activeTab = location.pathname === '/' ? 'intro' : location.pathname.replace('/', '');
-  @property({ type: Array }) tabs = ['intro', 'intermediate', 'advanced'];
+  @property({ type: Array }) tabs = ['intro', 'scene1', 'scene2', 'scene3'];
   @property({ type: Boolean }) smallScreen;
 
   firstUpdated() {
@@ -28,8 +29,8 @@ export class MyApp extends LitElement {
         component: 'scene2-page'
       },
       {
-        path: '/advanced',
-        component: 'advanced-demos'
+        path: '/scene3',
+        component: 'scene3-page'
       },
       {
         path: '(.*)',
@@ -84,12 +85,22 @@ export class MyApp extends LitElement {
         
         .nav { margin-bottom: 20px; }
         .footer { text-align: center; color: #a8a8a8; }
+        
+        #test {
+          position: fixed;
+          z-index: 100000;
+          left: 50%;
+          transform: translateX(-50%);
+          background: white;
+          border-radius: 30px;
+        }
       </style>
 
-      <vaadin-tabs class="${this.smallScreen ? 'nav' : ''}" orientation="${this.smallScreen ? 'vertical' : 'horizontal'}" selected=${this.tabs.indexOf(this.activeTab)} theme="${this.smallScreen ? '' : 'centered'}">
+      <vaadin-tabs id="test" class="${this.smallScreen ? 'nav' : ''}" orientation="${this.smallScreen ? 'vertical' : 'horizontal'}" selected=${this.tabs.indexOf(this.activeTab)} theme="${this.smallScreen ? '' : 'centered'}">
         <vaadin-tab @click=${() => this.switchRoute('')}>intro</vaadin-tab>
         <vaadin-tab @click=${() => this.switchRoute('scene1')}>scene1</vaadin-tab>
         <vaadin-tab @click=${() => this.switchRoute('scene2')}>scene2</vaadin-tab>
+        <vaadin-tab @click=${() => this.switchRoute('scene3')}>scene3</vaadin-tab>
       </vaadin-tabs>
             
       <div id='outlet'></div>

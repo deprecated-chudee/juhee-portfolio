@@ -1,25 +1,36 @@
-import { LitElement, html, customElement, property, css, unsafeCSS } from 'lit-element';
-import intro from '../assets/images/intro01.png';
-import mouse from '../assets/images/mouse02.png';
-import clicked from '../assets/images/click02_08.png';
+import { LitElement, html, customElement } from 'lit-element';
+import { Router } from '@vaadin/router';
+
+// @ts-ignore
+import background from '../assets/imgs/intro/page1920/intro0.png';
+// @ts-ignore
+import mouse01 from '../assets/imgs/intro/page1920/mouse01.png';
+// @ts-ignore
+import mouse02 from '../assets/imgs/intro/page1920/mouse02.png';
+// @ts-ignore
+import click01 from '../assets/imgs/intro/page1920/click01.png';
+// @ts-ignore
+import click02 from '../assets/imgs/intro/page1920/click02.png';
 
 @customElement('intro-page')
 export class IntroPage extends LitElement {
-
-  static get styles() {
-    return css`
-    :host {
+  handleClick() {
+    Router.go('scene1');
+  }
+  render() {
+    const style = html`
+      <style>
+      :host {
+        display: block;
         position: fixed;
         width: 100%;
         height: 100%;
+        background-image: url(${background});
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
       }
-      .background {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        object-position: center;
-      }
-      .mouse-wrapper {
+      .mouse-container {
         position: absolute;
         width: 336px;
         height: 86px;
@@ -27,39 +38,46 @@ export class IntroPage extends LitElement {
         top: 50%;
         transform: translate(-50%, -50%);
       }
-      .mouse {
-        position: absolute;
-        object-position: bottom;
+      .mouse-container:hover > div:nth-child(1) {
+        display: none;
+      }
+      .mouse-container:hover > div:nth-child(2) {
+        display: block;
+      }
+      .mouse-move {
         animation: mouse infinite 1s alternate linear;
       }
-      .mouse--off,
-      .mouse--on {
+      .mouse-move-center {
+        transform: translate(110px, -20px);
+      } 
+      .mouse-click {
         position: absolute;
+        top: -22px;
+        display: none;
+        cursor: pointer;
       }
-      .mouse:hover > li:nth-child(2) {
-        background: url(${unsafeCSS(clicked)} no-repeat center; animation: paused; top:-50px
+      .mouse-click-center {
+        transform: translate(120px, -15px);
       }
       @keyframes mouse {
-        0%{top: -33px;}
-        100%{top: -43px;}
+        0% { transform: translate(110px, -15px); }
+        100% { transform: translate(110px, -25px); }
       }
-     
-    `
-  }
-
-  render() {
+      </style>
+    `;
     return html`
-      <img class='background' src=${intro}>
+      ${style}
       
-      <!-- TODO dom change with mouseover -->
-      <div class='mouse-wrapper' @mouseover='${this.test}'>
-        <img class='mouse' src=${mouse} alt="">
-        <img class='mouse mouse--hover' src=${clicked} alt="">
+      <div class='mouse-container'>
+        <div>
+          <img class='mouse mouse-move-center mouse-move' src=${mouse01} alt="">
+          <img class='mouse' src=${mouse02} alt="">
+        </div>
+        <div class="mouse-click" @click="${this.handleClick}">
+          <img class='mouse mouse-click-center' src=${click01} alt="">
+          <img class='mouse' src=${click02} alt="">
+        </div>
       </div>
     `
-  }
-
-  test(e) {
-    console.log(e)
   }
 }
