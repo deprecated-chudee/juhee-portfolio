@@ -1,14 +1,12 @@
-import { LitElement, html, customElement } from 'lit-element';
+import React from 'react';
 
-// @ts-ignore
-import background from '../assets/imgs/out/door/out04door1.png';
+const Scene2: React.FC = () => {
+  return (
+    <main className='Scene2'>
+      <div className='background'/>
 
-@customElement('scene2-page')
-export class Scene2Page extends LitElement {
-  render() {
-    const style = html`
-      <style>
-        :host {
+      <style jsx>{`
+        .Scene2 {
           display: block;
           position: fixed;
           width: 100%;
@@ -22,17 +20,15 @@ export class Scene2Page extends LitElement {
         .background {
           width: 100%;
           height: 100%;
-          background-image: url(${background});
+          background-image: url('/assets/imgs/out/door/out04door1.png');
           background-repeat: no-repeat;
           background-size: contain;
           background-position: center;
         }
+      `}
       </style>
-    `;
-    return html`
-      ${style}
-      
-      <div class='background' />
-    `
-  }
-}
+    </main>
+  );
+};
+
+export default Scene2;

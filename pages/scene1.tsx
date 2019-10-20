@@ -1,41 +1,47 @@
-import { LitElement, html, customElement } from 'lit-element';
-import { Router } from '@vaadin/router';
-
-// @ts-ignore
-import background from '../assets/imgs/intro/intro3840.jpg';
+import React, { useEffect, useRef } from 'react';
+import { useRouter } from 'next/router';
 
 const NEXT_PAGE = 2800;
 const PERSPECTIVE = -2160;
 const DIVSION = 15;
 
-@customElement('scene1-page')
-export class Scene1Page extends LitElement {
+const Scene1: React.FC = () => {
+  const router = useRouter();
+  const ref: React.Ref<HTMLDivElement> = useRef(null);
 
-  protected firstUpdated() {
-    this.scroll();
-  }
+  useEffect(() => {
+    scroll();
+  }, []);
 
-  scroll() {
-    const ref = this.shadowRoot.querySelector('.wrapper');
+  const scroll = () => {
     document.addEventListener('scroll', function (event: Event) {
       event.preventDefault();
-      const scrollTop = document.scrollingElement.scrollTop;
+      const scrollTop = document.scrollingElement ? document.scrollingElement.scrollTop : 0;
 
-      ref.setAttribute(
+      console.log(ref.current);
+      // TODO change useState
+      ref.current && ref.current.setAttribute(
         'style',
         `transform: translate3d(0, ${scrollTop / DIVSION}px, ${PERSPECTIVE + scrollTop}px)`
       );
 
       if(scrollTop >= NEXT_PAGE) {
-        Router.go('scene2');
+        router.push('/scene2');
       }
     }, true);
-  }
+  };
 
-  render() {
-    const style = html`
-      <style>
-        :host {
+  return (
+    <main className='Scene1'>
+      <div className='scroll'>
+        <article ref={ref}  className='wrapper'>
+          <div className='background'/>
+        </article>
+      </div>
+
+
+      <style jsx>{`
+        .Scene1 {
           display: block;
           position: absolute;
           width: 100%;
@@ -67,26 +73,14 @@ export class Scene1Page extends LitElement {
           left: -50%;
           width: 3840px;
           height: 2160px;
-          background-image: url(${background});
+          background-image: url('/assets/imgs/intro/intro3840.jpg');
           background-position: center;
           background-repeat: no-repeat;
           background-size: contain;
         }
-      </style>
-    `;
+      `}</style>
+    </main>
+  )
+};
 
-    return html`
-      ${style}
-     
-      <div class="scroll">
-        <article class="wrapper">
-          <div class='background' />
-        </article>
-      </div>
-    `
-  }
-
-  test(e) {
-    console.log(e)
-  }
-}
+export default Scene1;
