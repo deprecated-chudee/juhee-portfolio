@@ -7,10 +7,9 @@ const Scene2: React.FC = () => {
 
       <style jsx>{`
         .Scene2 {
-          display: block;
-          position: fixed;
-          width: 100%;
-          height: 100%;
+          position: relative;
+          width: 1980px;
+          height: 980px;
           background-color: skyblue;
         }
         .layout {

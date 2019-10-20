@@ -14,12 +14,12 @@ const Index: NextPage<{}> = () => {
     <main className='intro'>
       <div className='mouse-container'>
           <div>
-            <img className='mouse mouse-move-center mouse-move' src='/assets/imgs/intro/page1920/mouse01.png' alt="" />
-            <img className='mouse' src='/assets/imgs/intro/page1920/mouse02.png' alt="" />
+            <img className='mouse mouse-move-center mouse-move' src='/assets/imgs/intro/mouse01.png' alt="" />
+            <img className='mouse' src='/assets/imgs/intro/mouse02.png' alt="" />
           </div>
           <div className="mouse-click" onClick={handleClick}>
-            <img className='mouse mouse-click-center' src='/assets/imgs/intro/page1920/click01.png' alt="" />
-            <img className='mouse' src='/assets/imgs/intro/page1920/click02.png' alt="" />
+            <img className='mouse mouse-click-center' src='/assets/imgs/intro/click01.png' alt="" />
+            <img className='mouse' src='/assets/imgs/intro/click02.png' alt="" />
           </div>
       </div>
 
@@ -30,7 +30,7 @@ const Index: NextPage<{}> = () => {
           position: fixed;
           width: 100%;
           height: 100%;
-          background-image: url('/assets/imgs/intro/page1920/intro0.png');
+          background-image: url('/assets/imgs/intro/background.jpg');
           background-repeat: no-repeat;
           background-size: cover;
           background-position: center;
