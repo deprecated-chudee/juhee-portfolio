@@ -7,11 +7,10 @@ module.exports = withSass({
   exportPathMap: function () { // /Next-React-Components
     return {
       "/": { page: "/" },
-      "/scene1": { page: "/scene1" },
-      "/scene2": { page: "/scene2" },
-      "/scene3": { page: "/scene3" },
+      "/entrance": { page: "/entrance" },
+      "/shop": { page: "/shop" },
     }
   },
   // TODO deploy url;
-  assetPrefix: isProduction ? 'https://chudee.github.io/' : '',
+  assetPrefix: isProduction ? 'http://sandoll.dothome.co.kr/' : '',
 });
