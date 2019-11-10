@@ -2,16 +2,15 @@ import React from 'react';
 
 interface Props {
   isOpen: boolean;
-  children: any;
+  children: React.ReactNode;
 }
 
 const Modal: React.FC<Props> = ({ isOpen, children }) => {
   if (isOpen) {
     return (
       <div className='modal'>
-        <div className='modal-header'></div>
+        <div className='modal-header' />
         {children}
-        <div>footer</div>
 
         <style jsx>{`
         .modal {

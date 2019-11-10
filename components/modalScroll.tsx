@@ -1,11 +1,19 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react'
 import { useRouter } from 'next/router';
 
+import ModalFull from './modalFull';
+
 const NEXT_PAGE_SCROLL_TOP = 2800;
-const PERSPECTIVE = -2160;
+const PERSPECTIVE = -1960;
 const DIVSION = 15;
 
-const Scene1: React.FC = () => {
+interface Props {
+  isOpen: boolean;
+  bgImage: string;
+  nextPage: string;
+}
+
+const ModalScroll: React.FC<Props> =  ({ isOpen, bgImage, nextPage }) => {
   const [scrollTop, setScrollTop] = useState(0);
   const ref: React.Ref<HTMLDivElement> = useRef(null);
   const router = useRouter();
@@ -30,7 +38,7 @@ const Scene1: React.FC = () => {
     }
 
     if(scrollTop >= NEXT_PAGE_SCROLL_TOP) {
-      router.push('/scene2');
+      router.push(nextPage);
     }
   }, [scrollTop]);
 
@@ -43,14 +51,17 @@ const Scene1: React.FC = () => {
   };
 
   return (
-    <main className='Scene1'>
-      <div className='scroll'>
+    <ModalFull isOpen={isOpen}>
+      <div className='modal scroll'>
         <article ref={ref} className='wrapper'>
           <div className='background'/>
         </article>
       </div>
 
       <style jsx>{`
+        .modal {
+          z-index: 10000;
+        }
         .Scene1 {
           display: block;
           position: absolute;
@@ -65,14 +76,14 @@ const Scene1: React.FC = () => {
           left: 50%;
           top: 50%;
           transform: translate(-50%, -50%);
-          perspective: 2060px;
+          perspective: 1960px;
           transition: all 10s;
         }
         .wrapper {
           width: 1920px;
           height: 980px;
           position: absolute;
-          transform: translate3d(0, 0, -2060px);
+          transform: translate3d(0, 0, -1960px);
           top: 0;
           left: 0;
           background-size: cover;
@@ -82,15 +93,15 @@ const Scene1: React.FC = () => {
           top: -50%;
           left: -50%;
           width: 3840px;
-          height: 2060px;
-          background-image: url('/assets/imgs/intro/background@2x.jpg');
+          height: 1960px;
+          background-image: url(${bgImage});
           background-position: center;
           background-repeat: no-repeat;
           background-size: contain;
         }
       `}</style>
-    </main>
+    </ModalFull>
   )
 };
 
-export default Scene1;
+export default ModalScroll;
