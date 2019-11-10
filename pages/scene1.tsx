@@ -45,7 +45,7 @@ const Scene1: React.FC = () => {
   return (
     <main className='Scene1'>
       <div className='scroll'>
-        <article ref={ref}  className='wrapper'>
+        <article ref={ref} className='wrapper'>
           <div className='background'/>
         </article>
       </div>
@@ -61,18 +61,18 @@ const Scene1: React.FC = () => {
         .scroll {
           position: fixed;
           width: 1920px;
-          height: 1080px;
+          height: 980px;
           left: 50%;
           top: 50%;
           transform: translate(-50%, -50%);
-          perspective: 2160px;
+          perspective: 2060px;
           transition: all 10s;
         }
         .wrapper {
           width: 1920px;
-          height: 1080px;
+          height: 980px;
           position: absolute;
-          transform: translate3d(0, 0, -2160px);
+          transform: translate3d(0, 0, -2060px);
           top: 0;
           left: 0;
           background-size: cover;
@@ -82,7 +82,7 @@ const Scene1: React.FC = () => {
           top: -50%;
           left: -50%;
           width: 3840px;
-          height: 2160px;
+          height: 2060px;
           background-image: url('/assets/imgs/intro/background@2x.jpg');
           background-position: center;
           background-repeat: no-repeat;

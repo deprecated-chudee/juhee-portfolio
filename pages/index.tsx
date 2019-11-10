@@ -13,14 +13,14 @@ const Index: NextPage<{}> = () => {
   return (
     <main className='intro'>
       <div className='mouse-container'>
-          <div>
-            <img className='mouse mouse-move-center mouse-move' src='/assets/imgs/intro/mouse01.png' alt="" />
-            <img className='mouse' src='/assets/imgs/intro/mouse02.png' alt="" />
-          </div>
-          <div className="mouse-click" onClick={handleClick}>
-            <img className='mouse mouse-click-center' src='/assets/imgs/intro/click01.png' alt="" />
-            <img className='mouse' src='/assets/imgs/intro/click02.png' alt="" />
-          </div>
+        <div>
+          <img className='mouse mouse-move-center mouse-move' src='/assets/imgs/intro/mouse01.png' alt="" />
+          <img className='mouse' src='/assets/imgs/intro/mouse02.png' alt="" />
+        </div>
+        <div className="mouse-click" onClick={handleClick}>
+          <img className='mouse mouse-click-center' src='/assets/imgs/intro/click01.png' alt="" />
+          <img className='mouse' src='/assets/imgs/intro/click02.png' alt="" />
+        </div>
       </div>
 
 

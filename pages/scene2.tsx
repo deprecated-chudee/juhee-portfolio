@@ -8,7 +8,7 @@ const Scene2: React.FC = () => {
       <style jsx>{`
         .Scene2 {
           position: relative;
-          width: 1980px;
+          width: 1920px;
           height: 980px;
           background-color: skyblue;
         }
