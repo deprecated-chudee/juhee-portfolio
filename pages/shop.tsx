@@ -60,7 +60,12 @@ const Shop: React.FC = () => {
   };
 
   const clickHandler = (name: string) => {
-    document.body.style.overflow = 'hidden';
+    if (name) {
+      document.querySelector('html')!.scroll(0, 0);
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
     setModal(name);
   };
 
@@ -76,12 +81,12 @@ const Shop: React.FC = () => {
         <div className='header-wrapper'>
           <img className='header' src='/assets/imgs/in/gnb/gnb.png' />
           <img className='header header--nb' src='/assets/imgs/in/gnb/nb.png' />
-          <img className={modal === '' ? 'header header__menu header--main header__menu--active' : 'header header__menu header--main'} src='/assets/imgs/in/gnb/main.png' onClick={() => setModal('')} />
-          <img className={modal === 'retro' ? 'header header__menu header--retro header__menu--active' : 'header header__menu header--retro'} src='/assets/imgs/in/gnb/retro.png' onClick={() => setModal('retro')} />
-          <img className={modal === 'buy' ? 'header header__menu header--buy header__menu--active' : 'header header__menu header--buy'} src='/assets/imgs/in/gnb/buy.png' onClick={() => setModal('buy')} />
-          <img className={modal === 'trial' ? 'header header__menu header--trial header__menu--active' : 'header header__menu header--trial'} src='/assets/imgs/in/gnb/trial.png' onClick={() => setModal('trial')} />
-          <img className={modal === 'event' ? 'header header__menu header--event header__menu--active' : 'header header__menu header--event'} src='/assets/imgs/in/gnb/event.png' onClick={() => setModal('event')} />
-          <img className={modal === 'install' ? 'header header__menu header--install header__menu--active' : 'header header__menu header--install'} src='/assets/imgs/in/gnb/install.png' onClick={() => setModal('install')} />
+          <img className={modal === '' ? 'header header__menu header--main header__menu--active' : 'header header__menu header--main'} src='/assets/imgs/in/gnb/main.png' onClick={() => clickHandler('')} />
+          <img className={modal === 'retro' ? 'header header__menu header--retro header__menu--active' : 'header header__menu header--retro'} src='/assets/imgs/in/gnb/retro.png' onClick={() => clickHandler('retro')} />
+          <img className={modal === 'buy' ? 'header header__menu header--buy header__menu--active' : 'header header__menu header--buy'} src='/assets/imgs/in/gnb/buy.png' onClick={() => clickHandler('buy')} />
+          <img className={modal === 'trial' ? 'header header__menu header--trial header__menu--active' : 'header header__menu header--trial'} src='/assets/imgs/in/gnb/trial.png' onClick={() => clickHandler('trial')} />
+          <img className={modal === 'event' ? 'header header__menu header--event header__menu--active' : 'header header__menu header--event'} src='/assets/imgs/in/gnb/event.png' onClick={() => clickHandler('event')} />
+          <img className={modal === 'install' ? 'header header__menu header--install header__menu--active' : 'header header__menu header--install'} src='/assets/imgs/in/gnb/install.png' onClick={() => clickHandler('install')} />
         </div>
         <img className='footer' src='assets/imgs/modals/event/bottom.png' />
 

@@ -11,9 +11,10 @@ interface Props {
   bgImage: string;
   nextPage: string;
   nextScrollTop: number;
+  children?: React.ReactNode;
 }
 
-const ModalScroll: React.FC<Props> =  ({ isOpen, bgImage, nextPage, nextScrollTop }) => {
+const ModalScroll: React.FC<Props> =  ({ isOpen, bgImage, nextPage, nextScrollTop, children }) => {
   const [scrollTop, setScrollTop] = useState(0);
   const ref: React.Ref<HTMLDivElement> = useRef(null);
   const router = useRouter();
@@ -55,6 +56,7 @@ const ModalScroll: React.FC<Props> =  ({ isOpen, bgImage, nextPage, nextScrollTo
       <div className='modal scroll'>
         <article ref={ref} className='wrapper'>
           <div className='background'/>
+          {children}
         </article>
       </div>
 
