@@ -11,11 +11,14 @@ const Entrance: React.FC = () => {
         <button onClick={() => setOpen(true)}>click</button>
       </div>
 
-      <ModalScroll isOpen={open} bgImage={'/assets/imgs/out/background@2x.jpg'} nextPage={'/shop'} />
+      <ModalScroll isOpen={open} bgImage={'/assets/imgs/out/background@2x.jpg'} nextPage={'/shop'} nextScrollTop={1200} />
 
       <style jsx>{`
         .Entrance {
-          position: relative;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
           width: 100%;
           height: 100vh;
           min-width: 1920px;

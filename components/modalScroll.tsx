@@ -3,7 +3,6 @@ import { useRouter } from 'next/router';
 
 import ModalFull from './modalFull';
 
-const NEXT_PAGE_SCROLL_TOP = 2800;
 const PERSPECTIVE = -1960;
 const DIVSION = 15;
 
@@ -11,9 +10,10 @@ interface Props {
   isOpen: boolean;
   bgImage: string;
   nextPage: string;
+  nextScrollTop: number;
 }
 
-const ModalScroll: React.FC<Props> =  ({ isOpen, bgImage, nextPage }) => {
+const ModalScroll: React.FC<Props> =  ({ isOpen, bgImage, nextPage, nextScrollTop }) => {
   const [scrollTop, setScrollTop] = useState(0);
   const ref: React.Ref<HTMLDivElement> = useRef(null);
   const router = useRouter();
@@ -37,7 +37,7 @@ const ModalScroll: React.FC<Props> =  ({ isOpen, bgImage, nextPage }) => {
       );
     }
 
-    if(scrollTop >= NEXT_PAGE_SCROLL_TOP) {
+    if(scrollTop >= nextScrollTop) {
       router.push(nextPage);
     }
   }, [scrollTop]);

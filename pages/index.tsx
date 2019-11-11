@@ -22,7 +22,10 @@ const Index: NextPage<{}> = () => {
 
         <style jsx>{`
         .Intro {
-          position: relative;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
           width: 100%;
           height: 100vh;
           min-width: 1920px;
@@ -104,7 +107,7 @@ const Index: NextPage<{}> = () => {
         </style>
       </div>
 
-      <ModalScroll isOpen={open} bgImage={'/assets/imgs/intro/background@2x.jpg'} nextPage={'/entrance'} />
+      <ModalScroll isOpen={open} bgImage={'/assets/imgs/intro/background@2x.jpg'} nextPage={'/entrance'} nextScrollTop={2800} />
     </main>
   )
 };

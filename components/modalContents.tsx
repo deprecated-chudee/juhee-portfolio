@@ -26,7 +26,6 @@ const ModalContents: React.FC<Props> = ({ isDimmer, width, height, close, header
       const maxScroll = verticalRef.current.scrollHeight - verticalRef.current.offsetHeight;
       const height = verticalRef.current.scrollTop / (maxScroll / maxHeight);
       setScrollTop(height);
-      console.log(height)
     }
   };
 
@@ -36,7 +35,6 @@ const ModalContents: React.FC<Props> = ({ isDimmer, width, height, close, header
       const maxScroll = horizontalRef.current.scrollWidth - horizontalRef.current.offsetWidth;
       const width = horizontalRef.current.scrollLeft / (maxScroll / maxWidth);
       setScrollLeft(width);
-      console.log(width)
     }
   };
 
@@ -63,7 +61,7 @@ const ModalContents: React.FC<Props> = ({ isDimmer, width, height, close, header
           <img className='modal-inner-header' src={headerImage} />
           <img className='exit' src={exitImage} onClick={close} />
           <div className='scrollbar-vertical'>
-            <img className='scrollbar-vertical-track' src={sideBarImage}/>
+            <img className='scrollbar-vertical-track' src={sideBarImage} />
           </div>
           <div className='scrollbar-horizontal'>
             <img className='scrollbar-horizontal-track' src={bottomImage} />

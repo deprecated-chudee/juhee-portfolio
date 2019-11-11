@@ -31,8 +31,9 @@ const ModalInstall: React.FC<Props> = ({ isOpen, close }) => {
             <img className='img-off' src={'assets/imgs/modals/install/remove-off.png'} />
             <img className='img-on' src={'assets/imgs/modals/install/remove-on.png'} />
           </div>
-          <img className='play-button'
-               src={'assets/imgs/modals/install/play.png'} />
+          <a href='https://youtu.be/ktbpzqJOKZs' target='_blank'>
+            <img className='play-button' src={'assets/imgs/modals/install/play.png'} />
+          </a>
         </div>
       </ModalContents>
 

@@ -76,12 +76,12 @@ const Shop: React.FC = () => {
         <div className='header-wrapper'>
           <img className='header' src='/assets/imgs/in/gnb/gnb.png' />
           <img className='header header--nb' src='/assets/imgs/in/gnb/nb.png' />
-          {modal === '' && <img className='header header--main' src='/assets/imgs/in/gnb/main.png' /> }
-          {modal === 'retro' && <img className='header header--retro' src='/assets/imgs/in/gnb/retro.png' /> }
-          {modal === 'buy' && <img className='header header--buy' src='/assets/imgs/in/gnb/buy.png' /> }
-          {modal === 'trial' && <img className='header header--trial' src='/assets/imgs/in/gnb/trial.png' /> }
-          {modal === 'event' && <img className='header header--event' src='/assets/imgs/in/gnb/event.png' /> }
-          {modal === 'install' && <img className='header header--install' src='/assets/imgs/in/gnb/install.png' /> }
+          <img className={modal === '' ? 'header header__menu header--main header__menu--active' : 'header header__menu header--main'} src='/assets/imgs/in/gnb/main.png' onClick={() => setModal('')} />
+          <img className={modal === 'retro' ? 'header header__menu header--retro header__menu--active' : 'header header__menu header--retro'} src='/assets/imgs/in/gnb/retro.png' onClick={() => setModal('retro')} />
+          <img className={modal === 'buy' ? 'header header__menu header--buy header__menu--active' : 'header header__menu header--buy'} src='/assets/imgs/in/gnb/buy.png' onClick={() => setModal('buy')} />
+          <img className={modal === 'trial' ? 'header header__menu header--trial header__menu--active' : 'header header__menu header--trial'} src='/assets/imgs/in/gnb/trial.png' onClick={() => setModal('trial')} />
+          <img className={modal === 'event' ? 'header header__menu header--event header__menu--active' : 'header header__menu header--event'} src='/assets/imgs/in/gnb/event.png' onClick={() => setModal('event')} />
+          <img className={modal === 'install' ? 'header header__menu header--install header__menu--active' : 'header header__menu header--install'} src='/assets/imgs/in/gnb/install.png' onClick={() => setModal('install')} />
         </div>
         <img className='footer' src='assets/imgs/modals/event/bottom.png' />
 
@@ -124,9 +124,8 @@ const Shop: React.FC = () => {
                src='/assets/imgs/in/refrigerator/coke.png'
                data-mouseover='/assets/imgs/in/mouseover/coke.png' />
 
-          <img className='icon icon--water-right mouseover'
-               src='/assets/imgs/in/refrigerator/water.png'
-               data-mouseover='/assets/imgs/in/mouseover/water.png' />
+          <img className='icon icon--water-right'
+               src='/assets/imgs/in/refrigerator/water.png' />
         </div>
 
         <img className='icon icon--tteokbokki mouseover'
@@ -230,12 +229,15 @@ const Shop: React.FC = () => {
           z-index: 200000;
         }
         .header--nb { top: 45px; left: 0; z-index: 10; }
+        .header__menu { opacity: 0; transition: opacity 0.2s ease; }
+        .header__menu--active { opacity: 1; }
         .header--main { left: 96px; }
         .header--retro { left: 236px; }
         .header--buy { left: 347px; }
         .header--trial { left: 430px; }
         .header--event { left: 546px; }
         .header--install { left: 642px; }
+
         .footer {
           position: absolute;
           bottom: 0;
