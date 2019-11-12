@@ -8,31 +8,33 @@ const Entrance: React.FC = () => {
   return (
     <main>
       <div className='Entrance' style={open ? {opacity: 0, visibility: 'hidden'}: {}}>
-        <img className='img img--gnb' src='assets/imgs/out/gnb.png' />
-        <img className='bg' src='/assets/imgs/out/background.png' />
-        <div className='img-container'>
-          <img className='img img--game' src='assets/imgs/out/game/game.png' />
-          <div className='game-video'>
-            <video autoPlay loop muted>
-              <source src='assets/imgs/out/game/video.mp4' type='video/mp4'/>
-            </video>
-          </div>
+        <div className='wrapper'>
+          <img className='bg' src='/assets/imgs/out/background.png' />
+          <div className='img-container'>
+            <img className='img img--game' src='assets/imgs/out/game/game.png' />
+            <div className='game-video'>
+              <video autoPlay loop muted>
+                <source src='assets/imgs/out/game/video.mp4' type='video/mp4'/>
+              </video>
+            </div>
 
-          <img className='img img--door' src='assets/imgs/out/door/door.png' onClick={() => setOpen(true)}/>
-          <img className='img img--signpost' src='assets/imgs/out/door/signpost.png' />
-          <img className='img img--grandma' src='assets/imgs/out/grandma/grandma-1.png' />
-          <img className='img img--grandma' src='assets/imgs/out/grandma/grandma-2.png' />
-          <img className='img img--grandma' src='assets/imgs/out/grandma/grandma-3.png' />
-          <img className='img img--grandma' src='assets/imgs/out/grandma/grandma-4.png' />
-          <img className='img img--grandma' src='assets/imgs/out/grandma/grandma-5.png' />
-          <img className='img img--left-talk' src='assets/imgs/out/grandma/talk-1.png' />
-          <img className='img img--right-talk' src='assets/imgs/out/grandma/talk-2.png' />
-          <img className='img img--girl' src='assets/imgs/out/girl/girl-1.png' />
-          <img className='img img--girl' src='assets/imgs/out/girl/girl-2.png' />
-          <img className='img img--girl' src='assets/imgs/out/girl/girl-3.png' />
-          <img className='img img--girl-talk' src='assets/imgs/out/girl/talk.png' />
-          <img className='img img--left-tree' src='assets/imgs/out/tree/left-tree.png' />
-          <img className='img img--right-tree' src='assets/imgs/out/tree/right-tree.png' />
+            <img className='img' src='assets/imgs/out/gnb.png' />
+            <img className='img img--door' src='assets/imgs/out/door/door.png' onClick={() => setOpen(true)}/>
+            <img className='img img--signpost' src='assets/imgs/out/door/signpost.png' />
+            <img className='img img--grandma' src='assets/imgs/out/grandma/grandma-1.png' />
+            <img className='img img--grandma' src='assets/imgs/out/grandma/grandma-2.png' />
+            <img className='img img--grandma' src='assets/imgs/out/grandma/grandma-3.png' />
+            <img className='img img--grandma' src='assets/imgs/out/grandma/grandma-4.png' />
+            <img className='img img--grandma' src='assets/imgs/out/grandma/grandma-5.png' />
+            <img className='img img--left-talk' src='assets/imgs/out/grandma/talk-1.png' />
+            <img className='img img--right-talk' src='assets/imgs/out/grandma/talk-2.png' />
+            <img className='img img--girl' src='assets/imgs/out/girl/girl-1.png' />
+            <img className='img img--girl' src='assets/imgs/out/girl/girl-2.png' />
+            <img className='img img--girl' src='assets/imgs/out/girl/girl-3.png' />
+            <img className='img img--girl-talk' src='assets/imgs/out/girl/talk.png' />
+            <img className='img img--left-tree' src='assets/imgs/out/tree/left-tree.png' />
+            <img className='img img--right-tree' src='assets/imgs/out/tree/right-tree.png' />
+          </div>
         </div>
       </div>
 
@@ -42,10 +44,7 @@ const Entrance: React.FC = () => {
 
       <style jsx>{`
         .Entrance {
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
+          position: relative;
           width: 100%;
           height: 100vh;
           min-width: 1920px;
@@ -57,6 +56,11 @@ const Entrance: React.FC = () => {
           opacity: 1;
           visibility: visible;
           transition: opacity 0.5s ease, visibility 0.4s ease;
+        }
+        .wrapper {
+          position: absolute;
+          width: 1920px;
+          height: 980px;
         }
         .bg { z-index: 1; }
         .img-container {
@@ -79,7 +83,6 @@ const Entrance: React.FC = () => {
         }
 
         .img { position: absolute; z-index: 1; }
-        .img--gnb { top: 0; left: 0; }
         .img--left-tree { top: -142px; left: -185px; z-index: 0; }
         .img--right-tree { top: -73px; left: 1337px; z-index: 0; }
         .img--girl { top: 628px; left: 497px; }
