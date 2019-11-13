@@ -49,7 +49,7 @@ const ModalEvent: React.FC<Props> = ({ isOpen, close }) => {
             <img className={spin === 'redbean' ? 'img-spin-off spin' : 'img-spin-off'}  src={'assets/imgs/modals/event/red-bean-bread.png'} />
             <img className={spin === 'redbean' ? 'img-spin-on spin' : 'img-spin-on'} src={'assets/imgs/modals/event/hover.png'} />
           </div>
-          <div className='img-wrapper img-wrapper--submit-button'>
+          <div className='img-wrapper img-wrapper--hover img-wrapper--submit-button'>
             <img className='img-off' src={'assets/imgs/modals/event/submit-off.png'} />
             <img className='img-on' src={'assets/imgs/modals/event/submit-on.png'} />
           </div>
@@ -97,6 +97,9 @@ const ModalEvent: React.FC<Props> = ({ isOpen, close }) => {
         .spin {
           opacity: 1;
           transform: rotate3d(0, 1, 0, 360deg);
+        }
+        .img-wrapper--hover:hover .img-on {
+          opacity: 1;
         }
       `}
       </style>

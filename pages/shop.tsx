@@ -159,17 +159,18 @@ const Shop: React.FC = () => {
              src='/assets/imgs/in/mede/tibisket.png'
              data-mouseover='/assets/imgs/in/mouseover/tibisket.png' />
 
+        <img className='icon icon--install mouseover'
+             src='/assets/imgs/in/install.png'
+             data-mouseover='/assets/imgs/in/mouseover/install.png'
+             onClick={() => clickHandler('install')}
+        />
+
         <img className='icon icon--calendar mouseover'
              src='/assets/imgs/in/calendar.png'
              data-mouseover='/assets/imgs/in/mouseover/calendar.png'
              onClick={() => clickHandler('event')}
         />
 
-        <img className='icon icon--install mouseover'
-             src='/assets/imgs/in/install.png'
-             data-mouseover='/assets/imgs/in/mouseover/install.png'
-             onClick={() => clickHandler('install')}
-        />
         <img className='icon icon--refrigerator mouseover'
              src='/assets/imgs/in/refrigerator.png'
              data-mouseover='/assets/imgs/in/mouseover/refrigerator.png'
@@ -304,12 +305,11 @@ const Shop: React.FC = () => {
         .icon--calendar { top: 155px; left: 1646px; }
         .icon--install { top: 292px; left: 1704px; }
         .icon--refrigerator { top: 637px; left: 1160px; }
-        .icon--grand-mother-1 { bottom: 1px; left: 139px; z-index: 1; animation: fadeInOut 3s infinite; }
-        .icon--grand-mother-2 { bottom: 1px; left: 134px; z-index: 1; animation: fadeInOut 3s infinite 1.5s; opacity: 0; }
+        .icon--grand-mother-1 { bottom: 1px; left: 139px; z-index: 1; animation: fadeInOut 3s 0.5s infinite; }
+        .icon--grand-mother-2 { bottom: 1px; left: 134px; z-index: 1; animation: fadeInOut 3s 2s infinite; opacity: 0; }
 
         @keyframes fadeInOut {
-          0% { opacity: 0; }
-          0.1% { opacity: 1; }
+          0% { opacity: 1; }
           50% { opacity: 1; }
           50.1% { opacity: 0; }
           100% { opacity: 0; }

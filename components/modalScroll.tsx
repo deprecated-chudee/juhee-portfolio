@@ -9,12 +9,13 @@ const DIVSION = 15;
 interface Props {
   isOpen: boolean;
   bgImage: string;
+  modalBg?: string;
   nextPage: string;
   nextScrollTop: number;
   children?: React.ReactNode;
 }
 
-const ModalScroll: React.FC<Props> =  ({ isOpen, bgImage, nextPage, nextScrollTop, children }) => {
+const ModalScroll: React.FC<Props> =  ({ isOpen, bgImage, modalBg, nextPage, nextScrollTop, children }) => {
   const [scrollTop, setScrollTop] = useState(0);
   const ref: React.Ref<HTMLDivElement> = useRef(null);
   const router = useRouter();
@@ -40,12 +41,11 @@ const ModalScroll: React.FC<Props> =  ({ isOpen, bgImage, nextPage, nextScrollTo
 
     if(scrollTop >= nextScrollTop) {
       router.push(nextPage);
+      return;
     }
   }, [scrollTop]);
 
-  const scrollHandler = (event: Event) => {
-    event.preventDefault();
-
+  const scrollHandler = () => {
     if (document.scrollingElement) {
       setScrollTop(document.scrollingElement.scrollTop);
     }
@@ -53,6 +53,7 @@ const ModalScroll: React.FC<Props> =  ({ isOpen, bgImage, nextPage, nextScrollTo
 
   return (
     <ModalFull isOpen={isOpen}>
+      {modalBg && <img src={modalBg} className='modalBg' />}
       <div className='modal scroll'>
         <article ref={ref} className='wrapper'>
           <div className='background'/>
@@ -64,12 +65,12 @@ const ModalScroll: React.FC<Props> =  ({ isOpen, bgImage, nextPage, nextScrollTo
         .modal {
           z-index: 10000;
         }
-        .Scene1 {
-          display: block;
-          position: absolute;
+        .modalBg {
+          position: fixed;
+          top: 0;
+          left: 0;
           width: 100%;
-          height: 4000px;
-          overflow:auto;
+          height: 100%;
         }
         .scroll {
           position: fixed;

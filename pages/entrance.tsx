@@ -38,7 +38,7 @@ const Entrance: React.FC = () => {
         </div>
       </div>
 
-      <ModalScroll isOpen={open} bgImage={'/assets/imgs/out/background@2x.jpg'} nextPage={'/shop'} nextScrollTop={1200}>
+      <ModalScroll isOpen={open} bgImage={'/assets/imgs/out/background@2x.jpg'} nextPage={'/shop'} nextScrollTop={1200} modalBg={'/assets/imgs/out/modal-bg.jpg'}>
         <img className='scroll' src='assets/imgs/out/scroll.png'/>
       </ModalScroll>
 
@@ -49,7 +49,10 @@ const Entrance: React.FC = () => {
           height: 100vh;
           min-width: 1920px;
           min-height: 980px;
-          background-color: #7dcbfd;
+          background-image: url('/assets/imgs/out/modal-bg.jpg');
+          background-repeat: no-repeat;
+          background-size: cover;
+          background-position: center;
           display: flex;
           align-items: center;
           justify-content: center;
@@ -62,6 +65,7 @@ const Entrance: React.FC = () => {
           position: absolute;
           width: 1920px;
           height: 980px;
+          overflow: hidden;
         }
         .bg { z-index: 1; }
         .img-container {
@@ -139,10 +143,10 @@ const Entrance: React.FC = () => {
           100% { transform: translateX(0); }
         }
 
-        .girl1 { animation: girl 3s infinite step-end; }
-        .girl2 { animation: girl 3s 1s infinite step-end; opacity: 0; }
-        .girl3 { animation: girl 3s 2s infinite step-end; opacity: 0; }
-        .girl4 { animation: fadeIn 3s step-end; }
+        .girl1 { animation: girl 3s 0.5s infinite step-end; }
+        .girl2 { animation: girl 3s 1.5s infinite step-end; opacity: 0; }
+        .girl3 { animation: girl 3s 2.5s infinite step-end; opacity: 0; }
+        .girl4 { animation: fadeIn 3.5s step-end; }
         @keyframes girl {
           0% { opacity: 1; }
           33.3% { opacity: 1; }
@@ -154,11 +158,11 @@ const Entrance: React.FC = () => {
           100% { opacity: 1; }
         }
 
-        .grandma1 { animation: grandma 5s infinite step-end; }
-        .grandma2 { animation: grandma 5s 1s infinite step-end; opacity: 0; }
-        .grandma3 { animation: grandma 5s 2s infinite step-end; opacity: 0; }
-        .grandma4 { animation: grandma 5s 3s infinite step-end; opacity: 0; }
-        .grandma5 { animation: grandma 5s 4s infinite step-end; opacity: 0; }
+        .grandma1 { animation: grandma 5s 0.5s infinite step-end; }
+        .grandma2 { animation: grandma 5s 1.5s infinite step-end; opacity: 0; }
+        .grandma3 { animation: grandma 5s 2.5s infinite step-end; opacity: 0; }
+        .grandma4 { animation: grandma 5s 3.5s infinite step-end; opacity: 0; }
+        .grandma5 { animation: grandma 5s 4.5s infinite step-end; opacity: 0; }
         .grandma6 { animation: fadeIn 4s step-end; }
         .grandma7 { animation: fadeIn 5s step-end; }
         @keyframes grandma {

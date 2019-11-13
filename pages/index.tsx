@@ -17,7 +17,7 @@ const Index: NextPage<{}> = () => {
             <img className='img img--plant plant' src='assets/imgs/intro/items/plant.png' />
             <img className='img img--flowerpot' src='assets/imgs/intro/items/flowerpot.png' />
             <img className='img img--post-it-yellow post-it-yellow' src='assets/imgs/intro/items/post-it-yellow.png' />
-            <img className='img img--post-it-blue post-it-blue' src='assets/imgs/intro/items/post-it-blue.png' />
+            <img className='img img--post-it-blue' src='assets/imgs/intro/items/post-it-blue.png' />
             <img className='img img--key key' src='assets/imgs/intro/items/key.png' />
 
             <div className='clock-wrapper'>
@@ -34,7 +34,7 @@ const Index: NextPage<{}> = () => {
         </div>
       </div>
 
-      <ModalScroll isOpen={open} bgImage={'/assets/imgs/intro/background@2x.jpg'} nextPage={'/entrance'} nextScrollTop={2800}>
+      <ModalScroll isOpen={open} bgImage={'/assets/imgs/intro/background@2x.jpg'} nextPage={'/entrance'} nextScrollTop={2800} modalBg={'/assets/imgs/intro/modal-bg.jpg'}>
         <img className='scroll' src='assets/imgs/intro/scroll.png'/>
       </ModalScroll>
 
@@ -180,14 +180,6 @@ const Index: NextPage<{}> = () => {
         @keyframes post-it-yellow {
           0% { transform: rotate(10deg); }
           100% { transform: rotate(-15deg); }
-        }
-        .post-it-blue {
-          animation: post-it-blue 2s ease-in-out infinite alternate;
-          transform-origin: top left;
-        }
-        @keyframes post-it-blue {
-          0% { transform: rotate(20deg); }
-          100% { transform: rotate(-10deg); }
         }
 
         .plant {
